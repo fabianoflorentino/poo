@@ -1,8 +1,6 @@
 package main
 
-import (
-	"abstracao/usuario"
-)
+import "abstracao/usuario"
 
 func main() {
 	usuario_comum := usuario.RegistraUsuarioComum("Usuario Commum", "usuario_comum@email.com")
