@@ -40,16 +40,29 @@ func (s Sedan) dados() string {
 	return fmt.Sprintf("Marca: %s, Modelo: %s, Porta Malas: %d", s.marca, s.modelo, s.portaMalas)
 }
 
+type Conversivel struct {
+	Carro
+	capota bool
+}
+
+func (c Conversivel) dados() string {
+	return fmt.Sprintf("%s, Capota: %t", c.Carro.dados(), c.capota)
+}
+
 // imprimirDados é uma função que recebe um veículo e imprime os dados do veículo
 func imprimirDados(v Veiculo) {
 	fmt.Println(v.dados())
 }
 
 func main() {
-	// Criando um carro do tipo hatch e um carro do tipo sedan
+	// Acessando atributos
 	hatch := Hatch{Carro{"Chevrolet", "Onix"}, 4}
 	sedan := Sedan{Carro{"Honda", "Civic"}, 500}
 
+	// Acessando métodos dados da struct Carro de forma explícita
+	conversivel := Conversivel{Carro{"Fiat", "Spyder"}, true}
+
 	imprimirDados(hatch)
 	imprimirDados(sedan)
+	imprimirDados(conversivel)
 }
